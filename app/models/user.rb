@@ -1,6 +1,10 @@
 class User < ApplicationRecord
-  validates :name, :email, :image_url, presence: true
+  validates :name, :email, presence: true
   has_secure_password
+
+  def image_url_or_default
+    image_url.presence || "http://lorempixel.com/400/200/sports/Dummy-Text/"
+  end
 
   def self.generate_users(n = 5, gender = "female")
     url = "https://randomuser.me/api?results=#{n}&gender=#{gender}"
