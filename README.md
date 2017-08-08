@@ -1,24 +1,19 @@
-# README
+# Humanbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Facebook clone for the Bootcamp Ruby class.
 
-Things you may want to cover:
 
-* Ruby version
+## Required features
 
-* System dependencies
+- [ ] User can sign up
+- [ ] User can sign in
+- [ ] A visitor can view a list of users
+- [ ] User can update profile information (name, email, image)
+- [ ] User can add another User as friend
+- [ ] User can send a message to a friend
 
-* Configuration
 
-* Database creation
+## Optional features
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] User can post on her wall
+- [ ] User can view someone else's wall
