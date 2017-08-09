@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def require_login
+    unless current_user
+      redirect_to root_path, flash: {error: "Access denied."}
+    end
+  end
+
   def login(user)
     session[:user_id] = user.id
   end
