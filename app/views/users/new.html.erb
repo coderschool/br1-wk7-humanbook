@@ -1,8 +1,26 @@
-<h1>Create An Account</h1>
-
-<%= form_for @user do |f| %>
-  <%= f.text_field :name, placeholder: "Name..." %>
-  <%= f.text_field :email, placeholder: "Email..." %>
-  <%= f.password_field :password, placeholder: "Password..." %>
-  <%= f.submit "Register" %>
-<% end %>
+<div class="columns">
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-header-title">Create An Account</h1>
+      </div>
+      <div class="card-content">
+        <%= form_for @user do |f| %>
+          <div class="field">
+            <%= f.text_field :name, placeholder: "Name...", class: "input" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :email, placeholder: "Email...", class: "input" %>
+          </div>
+          <div class="field">
+            <%= f.password_field :password, placeholder: "Password...", class: "input" %>
+          </div>
+          <div class="field">
+            <%= f.submit "Register", class: "button is-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>

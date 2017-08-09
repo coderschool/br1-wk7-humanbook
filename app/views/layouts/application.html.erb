@@ -8,6 +8,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          Humanbook
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <% unless current_user %>
+          <%= link_to "Sign Up", new_user_path, class: "navbar-item" %>
+          <%= link_to "Log In", login_path, class: "navbar-item" %>
+        <% end %>
+      </div>
+      <div class="navbar-end">
+        <% if current_user %>
+        <a class="navbar-item" href="/">Log out</a>
+        <% end %>
+      </div>
+    </nav>
+    <%= flash_messages %>
+
+    <div class="container is-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>

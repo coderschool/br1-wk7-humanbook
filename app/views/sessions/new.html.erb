@@ -1,0 +1,29 @@
+
+<div class="columns">
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-header-title">Log In</h1>
+      </div>
+      <div class="card-content">
+        <%= form_tag login_path do %>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <%= text_field_tag :email, params[:email], class: "input" %>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <%= password_field_tag :password, nil, class: "input" %>
+            </div>
+          </div>
+          <div class="control">
+            <button class="button is-primary">Log In</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
