@@ -1,0 +1,6 @@
+attributes:
+  - primary_keys
+  - content
+  - foreign_keys
+  - inheritance
+notation: bachman
