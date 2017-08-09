@@ -15,6 +15,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    current_user.update(user_params)
+    redirect_to root_path
+  end
+
   def index
     @users = User.all
   end

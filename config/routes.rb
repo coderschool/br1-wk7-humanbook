@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   get "profile" => "users#edit"
+  
   delete "remove_friend" => "friendships#destroy"
-
   resources :friendships
-
-  get 'sessions/new'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

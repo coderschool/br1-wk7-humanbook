@@ -1,9 +1,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Avatar</th>
-      <th>Name</th>
-      <th>Email</th>
+      <th>User</th>
+      <th></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -11,8 +10,10 @@
     <% User.all.each do |another_user| %>
       <tr>
         <td><%= image_tag another_user.image_url_or_default %></td>
-        <td><%= another_user.name %></td>
-        <td><%= another_user.email %></td>
+        <td>
+          <div><%= another_user.name %></div>
+          <div><%= another_user.email %></div>
+        </td>
         <td>
           <% if current_user.is_friend?(another_user) %>
             <%= link_to "Remove friend", remove_friend_path(user_id: another_user.id), class: "button is-danger", method: :delete %>

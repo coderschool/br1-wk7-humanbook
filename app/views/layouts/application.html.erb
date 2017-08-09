@@ -28,7 +28,7 @@
         <% if current_user %>
           <%= link_to profile_path, class: "navbar-item" do %>
             <%= image_tag current_user.image_url_or_default %>
-            &nbsp;Profile
+            &nbsp;<%= current_user.name %>
           <% end %>
           <%= link_to icon("sign-out", "Log out"), logout_path, class: "navbar-item" %>
         <% end %>
