@@ -17,7 +17,7 @@
       <div class="navbar-menu">
         <% if current_user %>
           <%= link_to users_path, class: "navbar-item" do %>
-            <%= fa_icon("users") %>&nbsp;Users
+            <%= icon("users", "Users") %>
           <% end %>
         <% else %>
           <%= link_to "Sign Up", new_user_path, class: "navbar-item" %>
@@ -26,7 +26,11 @@
       </div>
       <div class="navbar-end">
         <% if current_user %>
-          <%= link_to fa_icon("sign-out") + "&nbsp;Log out".html_safe, logout_path, class: "navbar-item" %>
+          <%= link_to profile_path, class: "navbar-item" do %>
+            <%= image_tag current_user.image_url_or_default %>
+            &nbsp;Profile
+          <% end %>
+          <%= link_to icon("sign-out", "Log out"), logout_path, class: "navbar-item" %>
         <% end %>
       </div>
     </nav>

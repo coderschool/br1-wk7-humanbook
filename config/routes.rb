@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "profile" => "users#edit"
   delete "remove_friend" => "friendships#destroy"
 
   resources :friendships
