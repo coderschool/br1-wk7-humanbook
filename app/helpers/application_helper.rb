@@ -14,8 +14,6 @@ module ApplicationHelper
   end
 
   def icon(icon_name, text)
-    content_tag(:span, class: "icon") do
-      fa_icon(icon_name)
-    end + "&nbsp;".html_safe + text
+    content_tag(:span, fa_icon(icon_name), class: "icon") + content_tag(:span, text)
   end
 end

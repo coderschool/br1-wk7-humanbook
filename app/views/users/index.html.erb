@@ -16,11 +16,11 @@
         </td>
         <td>
           <% if current_user.is_friend?(another_user) %>
-            <%= link_to "Remove friend", remove_friend_path(user_id: another_user.id), class: "button is-danger", method: :delete %>
+            <%= link_to icon("user-times", "Remove friend"), remove_friend_path(user_id: another_user.id), class: "button is-danger add-remove", method: :delete %>
           <% else %>
             <%= form_for current_user.friendships.build(friend: another_user) do |f| %>
               <%= f.hidden_field :friend_id %>
-              <button class="button is-primary">Add Friend</button>
+              <button class="button is-primary add-remove"><%= icon("user-plus", "Add Friend") %></button>
             <% end %>
           <% end %>
         </td>
