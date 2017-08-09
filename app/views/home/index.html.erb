@@ -1,13 +1,9 @@
-<h2>Users</h2>
+<div class="content">
+  <h2>Welcome</h2>
 
-<%= link_to "Create An Account", new_user_path %>
-
-<table>
-  <% User.all.each do |user| %>
-    <tr>
-      <td><%= image_tag user.image_url_or_default %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-    </tr>
+  <% if current_user %>
+    <p>More features are coming. Stay tuned!</p>
+  <% else %>
+    <%= link_to "Create An Account", new_user_path, class: "button is-primary" %>
   <% end %>
-</table>
+</div>
