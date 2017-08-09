@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'auth/:provider/callback' => 'sessions#callback'
   get "profile" => "users#edit"
   
   delete "remove_friend" => "friendships#destroy"
