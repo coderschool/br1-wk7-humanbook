@@ -1,13 +1,33 @@
 class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  
+
   # me ==> friendships
   # friendship ==> friend
   # friendships ==> friends
 
   validates :name, :email, presence: true
   has_secure_password
+
+  def self.from_omniauth(auth)
+    # Check out the Auth Hash function at https://github.com/mkdynamic/omniauth-facebook#auth-hash
+    # and figure out how to get email for this user.
+    # Note that Facebook sometimes does not return email,
+    # in that case you can use facebook-id@facebook.com as a workaround
+    email = auth[:info][:email] || "#{auth[:uid]}@facebook.com"
+    user = where(email: email).first_or_initialize
+    user.image_url = auth[:info][:image]
+    user.name = auth[:info][:name]
+    user.password = SecureRandom.hex
+    #
+    # Set other properties on user here. Just generate a random password. User does not have to use it.
+    # You may want to call user.save! to figure out why user can't save
+    #
+    # Finally:
+    # - if user doesn't save, return false
+    # - if user did save, return user
+    user.save && user
+  end
 
   def image_url_or_default
     image_url.presence || "http://lorempixel.com/128/128/sports/Fake-User/"
@@ -47,23 +67,5 @@ class User < ApplicationRecord
 
   def friend_names
     friends.map{|e| e.name}
-  end
-
-  def self.from_omniauth(auth)
-    # Check out the Auth Hash function at https://github.com/mkdynamic/omniauth-facebook#auth-hash
-    # and figure out how to get email for this user.
-    # Note that Facebook sometimes does not return email,
-    # in that case you can use facebook-id@facebook.com as a workaround
-    email = auth[:info][:email] || "#{auth[:uid]}@facebook.com"
-    user = where(email: email).first_or_initialize
-    user.image_url = auth[:info][:image]
-    user.name = auth[:info][:name]
-    user.password = SecureRandom.hex
-    #
-    # Set other properties on user here. Just generate a random password. User does not have to use it.
-    # You may want to call user.save! to figure out why user can't save
-    #
-    # Finally, return user
-    user.save && user
   end
 end

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'auth/:provider/callback' => 'sessions#callback'
   get "profile" => "users#edit"
-  
+  # NOTE: /auth/facebook is supported by the omniauth-facebook gem
+
+  get 'auth/:provider/callback' => 'sessions#callback'
+
   delete "remove_friend" => "friendships#destroy"
   resources :friendships
 
