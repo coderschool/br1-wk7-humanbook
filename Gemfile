@@ -48,3 +48,4 @@ gem "bulma-rails", github: "harley/bulma-rails"
 gem "rails-erd"
 gem 'turbolinks', '~> 5'
 gem "font-awesome-rails"
+gem "jquery-rails"
