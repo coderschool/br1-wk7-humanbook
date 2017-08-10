@@ -1,2 +1,7 @@
-<h1>Inbox</h1>
-<p>Display received messages</p>
+<h1 class="title">Inbox</h1>
+
+<% if @messages.empty? %>
+  <p>You have no messages yet.</p>
+<% else %>
+  <%= render @messages %>
+<% end %>

@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-header-title"><%= icon("comment-o", "Compose") %></div>
+  </div>
+  <div class="card-content">
+    <% if @message.errors.any? %>
+      <div class="message is-danger">
+        <div class="message-body">
+          <%= @message.errors.full_messages.to_sentence %>
+        </div>
+      </div>
+    <% end %>
+    <%= form_for @message do |f| %>
+      <div class="field">
+        <%= f.label :recipient_id, class: "label" %>
+        <div class="control">
+          <div class="select">
+            <%= f.select :recipient_id, User.all.collect{|p| [p.name, p.id]} %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :body, class: "label" %>
+        <div class="control">
+          <%= f.text_area :body, class: "textarea" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.submit "Send", class: "button is-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

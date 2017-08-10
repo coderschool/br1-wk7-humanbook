@@ -7,8 +7,9 @@
             Messages
           </p>
           <ul class="menu-list">
-            <li><%= link_to "Inbox", messages_inbox_path, class: "#{'is-active' if current_page?(messages_inbox_path)}" %></li>
-            <li><%= link_to "Sent", messages_sent_path, class: "#{'is-active' if current_page?(messages_sent_path)}" %></li>
+            <li><%= link_to icon("comment-o", "Compose"), new_message_path, class: "#{'is-active' if current_page?(new_message_path)}" %></li>
+            <li><%= link_to icon("inbox", "Inbox"), messages_inbox_path, class: "#{'is-active' if current_page?(messages_inbox_path)}" %></li>
+            <li><%= link_to icon("paper-plane-o", "Sent"), messages_sent_path, class: "#{'is-active' if current_page?(messages_sent_path)}" %></li>
           </ul>
         </aside>
       </div>
