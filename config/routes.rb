@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "friends" => "friends#index"
   get "profile" => "users#edit"
   # NOTE: /auth/facebook is supported by the omniauth-facebook gem
 

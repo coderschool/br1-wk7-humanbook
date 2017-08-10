@@ -1,5 +1,14 @@
 // $navbar-background-color: #3b5998;
-$navbar-background-color: #2196f3;
-$navbar-item-color: #efefef;
-$navbar-item-hover-background-color: darken(#2196f3, 10%);
-$navbar-item-hover-color: #efefef;
+$primaryColor: #2196f3;
+$linkColor: #efefef;
+
+$navbar-background-color: $primaryColor;
+
+$navbar-item-color: $linkColor;
+$navbar-item-hover-color: $linkColor;
+$navbar-item-hover-background-color: darken($primaryColor, 10%);
+
+$navbar-dropdown-background-color: $primaryColor;
+$navbar-dropdown-item-active-background-color: $primaryColor;
+$navbar-dropdown-item-hover-background-color: darken($primaryColor, 10%);
+$navbar-dropdown-item-hover-color: $linkColor;

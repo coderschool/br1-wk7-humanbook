@@ -1,12 +1,17 @@
-.navbar-brand .navbar-item {
-  padding: 0 1rem;
-  img {
-    max-height: 3rem;
+.navbar-burger {
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+  }
+  > span {
+    background-color: white;
   }
 }
 
-.container {
-  padding-top: 20px;
+.navbar-brand .navbar-item {
+  padding: 0;
+  img {
+    max-height: 3rem;
+  }
 }
 
 span.icon {
@@ -15,4 +20,11 @@ span.icon {
 
 .add-remove {
   width: 160px;
+}
+
+.navbar-item .field {
+  .input,
+  .icon {
+    height: 1.8em;
+  }
 }
