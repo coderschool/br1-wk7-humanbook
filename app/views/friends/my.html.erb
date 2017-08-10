@@ -1,0 +1,12 @@
+<h1 class="title">My Friends</h1>
+
+<% @users.in_groups_of(2, false).each do |group| %>
+  <div class="columns">
+    <% group.each do |user| %>
+      <div class="column is-half">
+        <%= render 'users/user_card', user: user %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

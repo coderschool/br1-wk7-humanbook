@@ -22,6 +22,10 @@ class MessagesController < ApplicationController
     @messages = current_user.received_messages
   end
 
+  def index
+    redirect_to inbox_messages_path
+  end
+
   private
 
   def message_params

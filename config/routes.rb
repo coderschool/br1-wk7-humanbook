@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  get 'messages/sent'
-  get 'messages/inbox'
-  resources "messages"
+  get 'friends/my'
+  get 'friends/friended_by'
+
+  resources "messages" do
+    collection do
+      get :inbox
+      get :sent
+    end
+  end
 
   get "friends" => "friends#index"
   get "profile" => "users#edit"

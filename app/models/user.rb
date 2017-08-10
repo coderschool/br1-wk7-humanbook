@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
+
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id"
 
@@ -69,5 +70,22 @@ class User < ApplicationRecord
 
   def friend_names
     friends.map{|e| e.name}
+  end
+
+  def friends_count
+    friends.count
+  end
+
+  def inverse_friendships
+    Friendship.where(friend_id: id)
+  end
+
+  # NOTE: this is inefficient
+  def inverse_friends
+    Friendship.where(friend_id: id).map{|e| e.user}
+  end
+
+  def inverse_friends_count
+    inverse_friends.count
   end
 end

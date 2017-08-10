@@ -1,21 +1,19 @@
 <% content_for :content do %>
-  <div class="container" style="margin-top: 20px">
-    <div class="columns">
-      <div class="column is-3">
-        <aside class="menu">
-          <p class="menu-label">
-            Messages
-          </p>
-          <ul class="menu-list">
-            <li><%= link_to icon("comment-o", "Compose"), new_message_path, class: "#{'is-active' if current_page?(new_message_path)}" %></li>
-            <li><%= link_to icon("inbox", "Inbox"), messages_inbox_path, class: "#{'is-active' if current_page?(messages_inbox_path)}" %></li>
-            <li><%= link_to icon("paper-plane-o", "Sent"), messages_sent_path, class: "#{'is-active' if current_page?(messages_sent_path)}" %></li>
-          </ul>
-        </aside>
-      </div>
-      <div class="column">
-        <%= yield %>
-      </div>
+  <div class="columns">
+    <div class="column is-3">
+      <aside class="menu">
+        <p class="menu-label">
+          Messages
+        </p>
+        <ul class="menu-list">
+          <li><%= link_to icon("comment-o", "Compose"), new_message_path, class: "#{'is-active' if current_page?(new_message_path)}" %></li>
+          <li><%= link_to icon("inbox", "Inbox"), inbox_messages_path, class: "#{'is-active' if current_page?(inbox_messages_path)}" %></li>
+          <li><%= link_to icon("paper-plane-o", "Sent"), sent_messages_path, class: "#{'is-active' if current_page?(sent_messages_path)}" %></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="column">
+      <%= yield %>
     </div>
   </div>
 <% end %>

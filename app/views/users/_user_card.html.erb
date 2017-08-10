@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-content">
+    <article class="media">
+      <figure class="media-left"><%= image_tag user.image_url_or_default %></figure>
+      <div class="media-content">
+        <div>
+          <p class="subtitle">
+            <strong><%= user.name %></strong>
+          </p>
+          <div class="field is-grouped">
+            <div class="control">
+              <div class="tags has-addons">
+                <span class="tag is-primary">Friends</span>
+                <span class="tag"><%= user.friends_count %></span>
+              </div>
+            </div>
+            <div class="control">
+              <div class="tags has-addons">
+                <span class="tag is-info">Friended by</span>
+                <span class="tag"><%= user.inverse_friends_count %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="media-right">
+        <% if current_user.is_friend?(user) %>
+          <%= link_to icon("user-times", "Unfriend", class: "icon is-small"), remove_friend_path(user_id: user.id), class: "button is-small is-light", method: :delete %>
+        <% else %>
+          <%= form_for current_user.friendships.build(friend: user) do |f| %>
+            <%= f.hidden_field :friend_id %>
+            <button class="button is-small is-light"><%= icon("user-plus", "Add friend", class: "icon is-small") %></button>
+          <% end %>
+        <% end %>
+      </div>
+    </article>
+  </div>
+</div>
