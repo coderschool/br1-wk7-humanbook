@@ -47,7 +47,7 @@ class User < ApplicationRecord
     url = "https://randomuser.me/api?results=#{n}&gender=#{gender}"
     body = HTTP.get(url).parse
     body["results"].each do |person|
-      hash = {}
+      hash = {gender: gender}
       hash[:name] = person["name"]["first"] + " " + person["name"]["last"]
       hash[:email] = person["email"]
       hash[:password] = person["login"]["password"]
