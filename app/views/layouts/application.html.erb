@@ -63,8 +63,12 @@
     </div>
     <%= flash_messages %>
 
-    <div class="container" style="margin-top: 20px">
-      <%= yield %>
-    </div>
+    <% if content_for?(:content) %>
+      <%= yield(:content) %>
+    <% else %>
+      <div class="container" style="margin-top: 20px">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>
