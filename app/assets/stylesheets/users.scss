@@ -1,2 +1,7 @@
-.user-card {
+.card.user-male .button.add-remove {
+  background: image-url('weather.png');
+}
+
+.card.user-female .button.add-remove {
+  background: image-url('sakura.png');
 }
