@@ -5,22 +5,31 @@ Trestle.resource(:users) do
 
   # Customize the table columns shown on the index view.
   #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+  table do
+    column :image_url, -> (user) { image_tag(user.image_url_or_default, class: "user-avatar")}
+    column :name
+    column :email
+    column :gender do |user|
+      user.male? ? icon("fa fa-male fa-3x") : icon("fa fa-female fa-3x")
+    end
+    column :created_at, align: :center
+    column :updated_at, align: :center
+    actions
+  end
 
   # Customize the form fields shown on the new/edit views.
   #
-  # form do |user|
-  #   text_field :name
-  #
-  #   row do
-  #     col(xs: 6) { datetime_field :updated_at }
-  #     col(xs: 6) { datetime_field :created_at }
-  #   end
-  # end
+  form do |user|
+    text_field :name
+    password_field :password
+    select :gender, ["male", "female"]
+    text_field :image_url
+   
+    row do
+      col(xs: 6) { datetime_field :updated_at }
+      col(xs: 6) { datetime_field :created_at }
+    end
+  end
 
   # By default, all parameters passed to the update and create actions will be
   # permitted. If you do not have full trust in your users, you should explicitly

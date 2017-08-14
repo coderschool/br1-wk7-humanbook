@@ -88,4 +88,8 @@ class User < ApplicationRecord
   def inverse_friends_count
     inverse_friends.count
   end
+
+  def male?
+    gender == "male"
+  end
 end
