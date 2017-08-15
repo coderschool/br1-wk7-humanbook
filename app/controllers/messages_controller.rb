@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.sent_messages.build message_params
     if @message.save
-      redirect_to messages_sent_path, flash: {success: "Sent."}
+      redirect_to sent_messages_path, flash: {success: "Sent."}
     else
       render 'new'
     end
