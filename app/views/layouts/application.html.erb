@@ -45,7 +45,7 @@
 
               <div class="navbar-item has-dropdown is-hoverable">
                 <a href="<%= users_path %>" class="navbar-link">
-                  <%= icon("users", "Friends") %>
+                  <%= icon("users") %>
                 </a>
                 <div class="navbar-dropdown">
                   <%= link_to "My Friends", friends_my_path, class: "navbar-item" %>
@@ -53,8 +53,8 @@
                 </div>
               </div>
 
-              <%= link_to icon("comments-o", "Messages"), messages_path, class: "navbar-item" %>
-              <%= link_to icon("sign-out", "Log out"), logout_path, class: "navbar-item" %>
+              <%= link_to icon("comments-o"), messages_path, class: "navbar-item" %>
+              <%= link_to icon("sign-out"), logout_path, class: "navbar-item" %>
             <% else %>
               <%= link_to "Sign Up", new_user_path, class: "navbar-item" %>
               <%= link_to "Log In", login_path, class: "navbar-item" %>

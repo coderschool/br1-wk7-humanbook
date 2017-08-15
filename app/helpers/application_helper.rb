@@ -13,7 +13,11 @@ module ApplicationHelper
     end.join.html_safe
   end
 
-  def icon(icon_name, text, options = {class: "icon"})
-    content_tag(:span, fa_icon(icon_name), options) + content_tag(:span, text)
+  def icon(icon_name, text = nil, options = {class: "icon"})
+    if text.present?
+      content_tag(:span, fa_icon(icon_name), options) + content_tag(:span, text)
+    else
+      content_tag(:span, fa_icon(icon_name), options)
+    end
   end
 end

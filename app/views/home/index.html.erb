@@ -1,10 +1,23 @@
-<div class="content">
-  <h2>Welcome</h2>
+<div class="columns">
+  <div class="column is-one-quarter">
+    <aside class="menu">
+      <ul class="menu-list">
+        <li><%= link_to icon("newspaper-o", "News Feed"), root_path %></li>
+        <li><%= link_to icon("comments-o", "Messenger"), messages_path %></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column is-two-thirds">
+    <div class="content">
+      <h2>Welcome</h2>
 
-  <% if current_user %>
-    <p>More features are coming. Stay tuned!</p>
-  <% else %>
-    <%= link_to "Create An Account", new_user_path, class: "button is-primary" %>
-    <%= link_to icon("facebook", "Log in with Facebook"), "/auth/facebook", class: "button is-info" %>
-  <% end %>
+      <% if current_user %>
+        <p>More features are coming. Stay tuned!</p>
+      <% else %>
+        <%= link_to "Create An Account", new_user_path, class: "button is-primary" %>
+        <%= link_to icon("facebook", "Log in with Facebook"), "/auth/facebook", class: "button is-info" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="column"></div>
 </div>
