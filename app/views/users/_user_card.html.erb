@@ -1,7 +1,11 @@
 <div class="card user-<%= user.gender %>">
   <div class="card-content">
     <article class="media">
-      <figure class="media-left"><%= image_tag user.image_url_or_default %></figure>
+      <figure class="media-left">
+        <div class="image is-64x64">
+          <%= image_tag user.image_url_or_default %>
+        </div>
+      </figure>
       <div class="media-content">
         <div>
           <div class="field">
@@ -9,7 +13,7 @@
               <span class="icon">
                 <%= fa_icon(user.gender) %>
               </span>
-              <%= user.name %>
+              <%= link_to user.name, wall_path(user.id) %>
             </span>
           </div>
           <div class="field is-grouped">

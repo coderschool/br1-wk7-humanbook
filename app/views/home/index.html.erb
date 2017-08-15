@@ -12,40 +12,7 @@
       </aside>
     </div>
     <div class="column is-two-thirds">
-      <%= simple_form_for Post.new(wall_user: current_user) do |f| %>
-        <div class="card post">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <p class="image is-64x64">
-                  <%= image_tag current_user.image_url_or_default %>
-                </p>
-              </div>
-              <div class="media-content">
-                <div class="field">
-                  <%= f.hidden_field :wall_user_id %>
-                  <%= f.input :body, input_html: {class: "textarea", placeholder: "What's on your name, #{current_user.name}"}, label: false %>
-                </div>
-                <nav class="level">
-                  <div class="level-left">
-                    <div class="label-item">
-                      <%= f.button :submit, input_html: {class: "card-footer-item button is-primary"} %>
-                    </div>
-                  </div>
-                  <div class="level-right">
-                    <div class="level-item">
-                      <label class="checkbox">
-                        <input type="checkbox"> Press enter to submit
-                      </label>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
+      <%= render "posts/form", post: Post.new(wall_user: current_user) %>
       <%= render @posts %>
     </div>
     <div class="column"></div>

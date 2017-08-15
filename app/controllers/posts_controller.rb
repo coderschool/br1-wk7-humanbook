@@ -5,11 +5,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
     @post.wall_user ||= current_user
 
-    if @post.save
-      redirect_to root_path, flash: {error: @post.errors.full_messages.to_sentence}
-    else
-      redirect_back fallback_location: root_path
+    unless @post.save
+      flash[:error] = @post.errors.full_messages.to_sentence
     end
+
+    redirect_back fallback_location: root_path
   end
 
   private

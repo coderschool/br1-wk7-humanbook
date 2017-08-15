@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'wall/show'
+
   get "wall/:id" => "wall#show", as: :wall
 
   resources :posts, only: [:create]
