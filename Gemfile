@@ -56,5 +56,7 @@ gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem 'trestle'
 
+gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 gem 'simplecov', :require => false, :group => :test
 gem "carrierwave"
+gem 'carrierwave-aws'
