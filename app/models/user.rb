@@ -21,7 +21,7 @@ class User < ApplicationRecord
     # in that case you can use facebook-id@facebook.com as a workaround
     email = auth[:info][:email] || "#{auth[:uid]}@facebook.com"
     user = where(email: email).first_or_initialize
-    user.image_url = auth[:info][:image]
+    user.remote_avatar_url = auth[:info][:image]
     user.name = auth[:info][:name]
     user.password = SecureRandom.hex
     #
@@ -35,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def image_url_or_default
-    avatar.url || image_url.presence || "http://lorempixel.com/128/128/sports/Fake-User/"
+    avatar.url || "http://lorempixel.com/128/128/sports/Fake-User/"
   end
 
   def add_friend(another_user)
@@ -54,7 +54,7 @@ class User < ApplicationRecord
       hash[:name] = person["name"]["first"] + " " + person["name"]["last"]
       hash[:email] = person["email"]
       hash[:password] = person["login"]["password"]
-      hash[:image_url] = person["picture"]["large"]
+      hash[:remote_avatar_url] = person["picture"]["large"]
       User.create! hash
     end
   end

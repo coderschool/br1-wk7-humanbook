@@ -1,4 +1,8 @@
 Trestle.resource(:users) do
+  search do |text|
+    User.where("name ILIKE :q OR email ILIKE :q", q: "%#{text}%")
+  end
+
   menu do
     item :users, icon: "fa fa-star"
   end
@@ -24,7 +28,7 @@ Trestle.resource(:users) do
     text_field :email
     password_field :password
     select :gender, ["male", "female"]
-    text_field :image_url
+    file_field :avatar, label: user.avatar.url ? image_tag(user.avatar.url) : "Avatar"
   end
 
   # By default, all parameters passed to the update and create actions will be

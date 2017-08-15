@@ -1,4 +1,8 @@
 Trestle.resource(:messages) do
+  search do |q|
+    Message.where("body ILIKE ?", "%#{q}%")
+  end
+
   menu do
     item :messages, icon: "fa fa-star"
   end
