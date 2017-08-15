@@ -12,8 +12,8 @@
       </aside>
     </div>
     <div class="column is-two-thirds">
-      <%= simple_form_for Post.new do |f| %>
-        <div class="card">
+      <%= simple_form_for Post.new(wall_user: current_user) do |f| %>
+        <div class="card post">
           <div class="card-content">
             <div class="media">
               <div class="media-left">
@@ -23,6 +23,7 @@
               </div>
               <div class="media-content">
                 <div class="field">
+                  <%= f.hidden_field :wall_user_id %>
                   <%= f.input :body, input_html: {class: "textarea", placeholder: "What's on your name, #{current_user.name}"}, label: false %>
                 </div>
                 <nav class="level">
@@ -44,7 +45,8 @@
           </div>
         </div>
       <% end %>
-      </div>
+
+      <%= render @posts %>
     </div>
     <div class="column"></div>
   </div>

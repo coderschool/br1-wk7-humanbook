@@ -1,0 +1,24 @@
+<div class="post card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <p class="image is-64x64">
+          <%= image_tag current_user.avatar.url %>
+        </p>
+      </div>
+      <div class="media-content">
+        <p class="is-title">
+          <strong><%= link_to post.poster.name, wall_path(post.poster) %></strong>
+          <% if post.different_wall? %>
+            to 
+            <strong><%= link_to post.wall_user.name, wall_path(post.wall_user) %></strong>
+          <% end %>
+        </p>
+        <p class="is-subtitle"><%= time_ago_in_words post.updated_at %></p>
+      </div>
+    </div>
+    <div class="content">
+      <%= simple_format post.body %>
+    </div>
+  </div>
+</div>
