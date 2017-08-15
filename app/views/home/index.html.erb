@@ -1,23 +1,51 @@
-<div class="columns">
-  <div class="column is-one-quarter">
-    <aside class="menu">
-      <ul class="menu-list">
-        <li><%= link_to icon("newspaper-o", "News Feed"), root_path %></li>
-        <li><%= link_to icon("comments-o", "Messenger"), messages_path %></li>
-      </ul>
-    </aside>
-  </div>
-  <div class="column is-two-thirds">
-    <div class="content">
-      <h2>Welcome</h2>
-
-      <% if current_user %>
-        <p>More features are coming. Stay tuned!</p>
-      <% else %>
-        <%= link_to "Create An Account", new_user_path, class: "button is-primary" %>
-        <%= link_to icon("facebook", "Log in with Facebook"), "/auth/facebook", class: "button is-info" %>
-      <% end %>
+<% unless current_user %>
+  <%= link_to "Create An Account", new_user_path, class: "button is-primary" %>
+  <%= link_to icon("facebook", "Log in with Facebook"), "/auth/facebook", class: "button is-info" %>
+<% else %>
+  <div class="columns">
+    <div class="column is-one-quarter">
+      <aside class="menu">
+        <ul class="menu-list">
+          <li><%= link_to icon("newspaper-o", "News Feed"), root_path %></li>
+          <li><%= link_to icon("comments-o", "Messenger"), messages_path %></li>
+        </ul>
+      </aside>
     </div>
+    <div class="column is-two-thirds">
+      <%= simple_form_for Post.new do |f| %>
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-64x64">
+                  <%= image_tag current_user.image_url_or_default %>
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="field">
+                  <%= f.input :body, input_html: {class: "textarea", placeholder: "What's on your name, #{current_user.name}"}, label: false %>
+                </div>
+                <nav class="level">
+                  <div class="level-left">
+                    <div class="label-item">
+                      <%= f.button :submit, input_html: {class: "card-footer-item button is-primary"} %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <label class="checkbox">
+                        <input type="checkbox"> Press enter to submit
+                      </label>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="column"></div>
   </div>
-  <div class="column"></div>
-</div>
+<% end %>
