@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id"
 
+  mount_uploader :avatar, AvatarUploader
+
   # me ==> friendships
   # friendship ==> friend
   # friendships ==> friends
@@ -33,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def image_url_or_default
-    image_url.presence || "http://lorempixel.com/128/128/sports/Fake-User/"
+    avatar.url || image_url.presence || "http://lorempixel.com/128/128/sports/Fake-User/"
   end
 
   def add_friend(another_user)
