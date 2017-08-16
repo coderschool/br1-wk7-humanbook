@@ -269,9 +269,6 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     shellany (0.0.1)
-    simple_form (3.5.0)
-      actionpack (> 4, < 5.2)
-      activemodel (> 4, < 5.2)
     simplecov (0.13.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -299,6 +296,9 @@ GEM
       kaminari (~> 0.17.0)
       rails (>= 4.2.0)
       sass-rails (~> 5.0.6)
+    trestle-auth (0.2.1)
+      bcrypt (~> 3.1.7)
+      trestle (~> 0.8)
     trestle-search (0.2.0)
       trestle (~> 0.8)
     turbolinks (5.0.1)
@@ -347,11 +347,11 @@ DEPENDENCIES
   rspec-rails (~> 3.6)
   sass-rails (~> 5.0)
   selenium-webdriver
-  simple_form
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   trestle
+  trestle-auth
   trestle-search
   turbolinks (~> 5)
   tzinfo-data

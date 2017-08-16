@@ -32,6 +32,7 @@ class User < ApplicationRecord
     end
     user.name = auth[:info][:name]
     user.password = SecureRandom.hex
+    user.auth_hash = auth
     #
     # Set other properties on user here. Just generate a random password. User does not have to use it.
     # You may want to call user.save! to figure out why user can't save

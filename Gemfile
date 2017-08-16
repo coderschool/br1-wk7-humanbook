@@ -61,4 +61,4 @@ gem 'simplecov', :require => false, :group => :test
 gem "carrierwave"
 gem 'carrierwave-aws'
 gem 'trestle-search'
-gem 'simple_form'
+gem 'trestle-auth'
