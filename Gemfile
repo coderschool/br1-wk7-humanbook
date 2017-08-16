@@ -60,5 +60,6 @@ gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 gem 'simplecov', :require => false, :group => :test
 gem "carrierwave"
 gem 'carrierwave-aws'
+gem "simple_form"
 gem 'trestle-search'
 gem 'trestle-auth'
