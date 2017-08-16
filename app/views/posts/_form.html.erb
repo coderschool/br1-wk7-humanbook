@@ -4,13 +4,13 @@
     <div class="card-content">
       <div class="media">
         <div class="media-left">
-          <p class="image is-64x64">
+          <p class="image is-32x32">
             <%= image_tag current_user.image_url_or_default %>
           </p>
         </div>
         <div class="media-content">
           <div class="field">
-            <%= f.text_area :body, class: "textarea", placeholder: post_placeholder_message(post) %>
+            <%= f.text_area :body, class: "textarea", placeholder: post_placeholder_message(post), rows: "2" %>
           </div>
           <nav class="level">
             <div class="level-left">

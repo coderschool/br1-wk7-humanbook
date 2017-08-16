@@ -12,6 +12,9 @@
               <%= current_user.name %>
             <% end %>
           </li>
+        </ul>
+        <p class="menu-label">Apps</p>
+        <ul class="menu-list">
           <li><%= link_to icon("newspaper-o", "News Feed"), root_path, class: "is-active" %></li>
           <li><%= link_to icon("comments-o", "Messenger"), messages_path %></li>
         </ul>

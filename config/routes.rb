@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'wall/show'
+  post "likes" => "likes#toggle"
 
   get "wall/:id" => "wall#show", as: :wall
 

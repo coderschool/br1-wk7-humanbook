@@ -1,3 +1,10 @@
 .post.card {
   margin-bottom: 1em;
+  .card-content {
+    padding: 0.5rem;
+
+    .media-content {
+      font-size: 0.8em;
+    }
+  }
 }

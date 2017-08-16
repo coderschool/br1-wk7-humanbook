@@ -7,8 +7,11 @@
     z-index: 1;
   }
 
-  .tabs {
-    border-left: 1px solid #efefef;
-    border-right: 1px solid #efefef;
+}
+.wall-tabs {
+  border-left: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+  &.is-boxed a {
+    border-radius: 0;
   }
 }

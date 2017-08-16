@@ -2,7 +2,7 @@
   <div class="card-content">
     <div class="media">
       <div class="media-left">
-        <p class="image is-64x64">
+        <p class="image is-32x32">
           <%= image_tag current_user.avatar.url %>
         </p>
       </div>
@@ -21,4 +21,24 @@
       <%= simple_format post.body %>
     </div>
   </div>
+  <div class="card-footer">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <%= link_to icon("thumbs-up", "Like"), likes_path(post_id: post.id), class: "button is-white #{'is-liked' if current_user.likes?(post)}", method: "post" %>
+        </div>
+        <div class="level-item">
+          <%= link_to icon("comments", "Comment"), "", class: "button is-white" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if post.likes.present? %>
+    <div class="card-footer likes-sentence">
+      <p>
+        <%= fa_stacked_icon "thumbs-up inverse", base: "circle" %>
+        <%= post.likes.map(&:user_name).to_sentence %>
+      </p>
+    </div>
+  <% end %>
 </div>

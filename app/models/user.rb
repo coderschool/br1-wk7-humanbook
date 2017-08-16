@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :posts, -> {order("updated_at DESC")}, dependent: :destroy, foreign_key: "poster_id"
   has_many :wall_posts, -> {order("updated_at DESC")}, dependent: :destroy, foreign_key: "wall_user_id", class_name: "Post"
+
+  has_many :likes, dependent: :destroy
+
   mount_uploader :avatar, AvatarUploader
 
   # me ==> friendships
@@ -95,5 +98,17 @@ class User < ApplicationRecord
 
   def male?
     gender == "male"
+  end
+
+  def toggle_like!(item)
+    if like = likes.where(item: item).first
+      like.destroy
+    else
+      likes.where(item: item).create!
+    end
+  end
+
+  def likes?(item)
+    likes.where(item: item).first
   end
 end
