@@ -7,7 +7,8 @@ class LikesController < ApplicationController
       post = Post.find params[:post_id]
       current_user.toggle_like!(post)
     elsif params[:comment_id]
-      raise "Not yet implemented"
+      comment = Comment.find params[:comment_id]
+      current_user.toggle_like!(comment)
     end
 
     redirect_back fallback_location: root_path

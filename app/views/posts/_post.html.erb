@@ -28,7 +28,7 @@
           <%= link_to icon("thumbs-up", "Like"), likes_path(post_id: post.id), class: "button is-white #{'is-liked' if current_user.likes?(post)}", method: "post" %>
         </div>
         <div class="level-item">
-          <%= link_to icon("comments", "Comment"), "", class: "button is-white" %>
+          <%= link_to icon("comments", "Comment"), "#", class: "js-post-comment button is-white" %>
         </div>
       </div>
     </div>
@@ -41,4 +41,6 @@
       </p>
     </div>
   <% end %>
+  <%= render post.comments %>
+  <%= render "comments/form", comment: post.comments.build %>
 </div>

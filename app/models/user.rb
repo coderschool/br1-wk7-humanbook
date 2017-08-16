@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :wall_posts, -> {order("updated_at DESC")}, dependent: :destroy, foreign_key: "wall_user_id", class_name: "Post"
 
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 

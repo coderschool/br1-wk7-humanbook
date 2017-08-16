@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   post "likes" => "likes#toggle"
 
   get "wall/:id" => "wall#show", as: :wall

@@ -1,0 +1,15 @@
+<%= form_for comment do |f| %>
+  <%= f.hidden_field :post_id %>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <p class="image is-32x32">
+          <%= image_tag current_user.image_url_or_default %>
+        </p>
+      </div>
+      <div class="media-content">
+        <%= f.text_field :body, class: "input new_comment", placeholder: "Write a comment..." %>
+      </div>
+    </div>
+  </div>
+<% end %>

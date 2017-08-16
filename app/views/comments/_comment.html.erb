@@ -1,0 +1,20 @@
+<div class="comment card-content">
+  <div class="media">
+    <div class="media-left">
+      <p class="image is-32x32">
+        <%= image_tag current_user.image_url_or_default %>
+      </p>
+    </div>
+    <div class="media-content">
+      <%= comment.body %>
+      <div class="level">
+        <div class="level-left">
+          <%= link_to likes_path(comment_id: comment.id), class: "level-item", method: "post" do %>
+            <% current_user.likes?(comment) ? "Unlike" : "Like" %>
+          <% end %>
+          <span><%= comment.updated_at.to_s(:short) %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
