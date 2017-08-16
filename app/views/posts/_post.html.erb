@@ -14,7 +14,7 @@
             <strong><%= link_to post.wall_user.name, wall_path(post.wall_user) %></strong>
           <% end %>
         </p>
-        <p class="is-subtitle"><%= time_ago_in_words post.updated_at %></p>
+        <small><%= time_ago_in_words post.updated_at %> ago</small>
       </div>
     </div>
     <div class="content">

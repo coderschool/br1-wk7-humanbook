@@ -6,7 +6,13 @@
     <div class="column is-one-quarter">
       <aside class="menu">
         <ul class="menu-list">
-          <li><%= link_to icon("newspaper-o", "News Feed"), root_path %></li>
+          <li>
+            <%= link_to wall_path(current_user), class: "wall-image-link" do %>
+              <%= image_tag current_user.image_url_or_default, class: "icon" %>
+              <%= current_user.name %>
+            <% end %>
+          </li>
+          <li><%= link_to icon("newspaper-o", "News Feed"), root_path, class: "is-active" %></li>
           <li><%= link_to icon("comments-o", "Messenger"), messages_path %></li>
         </ul>
       </aside>

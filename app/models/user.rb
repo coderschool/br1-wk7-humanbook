@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id"
 
-  has_many :posts, dependent: :destroy, foreign_key: "poster_id"
+  has_many :posts, -> {order("updated_at DESC")}, dependent: :destroy, foreign_key: "poster_id"
   has_many :wall_posts, -> {order("updated_at DESC")}, dependent: :destroy, foreign_key: "wall_user_id", class_name: "Post"
   mount_uploader :avatar, AvatarUploader
 

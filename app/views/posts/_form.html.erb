@@ -1,4 +1,5 @@
-<%= simple_form_for post do |f| %>
+<%= form_for post do |f| %>
+  <%= f.hidden_field :wall_user_id %>
   <div class="card post">
     <div class="card-content">
       <div class="media">
@@ -9,20 +10,19 @@
         </div>
         <div class="media-content">
           <div class="field">
-            <%= f.hidden_field :wall_user_id %>
-            <%= f.input :body, input_html: {class: "textarea", placeholder: post_placeholder_message(post)}, label: false %>
+            <%= f.text_area :body, class: "textarea", placeholder: post_placeholder_message(post) %>
           </div>
           <nav class="level">
             <div class="level-left">
-              <div class="label-item">
-                <%= f.button :submit, input_html: {class: "card-footer-item button is-primary"} %>
-              </div>
-            </div>
-            <div class="level-right">
               <div class="level-item">
                 <label class="checkbox">
                   <input type="checkbox"> Press enter to submit
                 </label>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <%= f.submit "Post", class: "button is-primary" %>
               </div>
             </div>
           </nav>

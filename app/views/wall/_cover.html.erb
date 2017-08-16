@@ -1,0 +1,27 @@
+<section class="wall hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <div class="media">
+        <div class="media-left">
+          <div class="image is-128x128"><%= image_tag @user.image_url_or_default %></div>
+        </div>
+        <div class="media-content">
+          <h1 class="title">
+            <%= user.name %>
+          </h1>
+          <h2 class="subtitle">
+            <%= user.email %>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="tabs is-boxed">
+  <ul>
+    <li style="margin-left: 175px" class="is-active"><a>Timeline</a></li>
+    <li><a>About</a></li>
+    <li><a>Friends</a></li>
+    <li><a>Photos</a></li>
+  </ul>
+</div>

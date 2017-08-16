@@ -38,7 +38,7 @@
           </div>
           <div class="navbar-end">
             <% if current_user %>
-              <%= link_to profile_path, class: "navbar-item" do %>
+              <%= link_to wall_path(current_user), class: "navbar-item" do %>
                 <%= image_tag current_user.image_url_or_default %>
                 &nbsp;<%= current_user.name %>
               <% end %>

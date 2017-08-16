@@ -1,22 +1,7 @@
-<section class="hero is-primary" style="margin-bottom: 1em">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        <%= @user.name %>
-      </h1>
-      <h2 class="subtitle">
-        <%= @user.email %>
-      </h2>
-    </div>
-  </div>
-</section>
+<%= render "wall/cover", user: @user %>
 <div class="columns">
   <div class="column is-one-third">
-    <div class="card">
-      <div class="card-content">
-        <h1><%= icon("globe", "Intro") %></h1>
-      </div>
-    </div>
+    <%= render "users/profile_box", user: @user %>
   </div>
   <div class="column">
     <%= render "posts/form", post: Post.new(wall_user: @user) %>
