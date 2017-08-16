@@ -10,13 +10,13 @@
         </div>
         <div class="media-content">
           <div class="field">
-            <%= f.text_area :body, class: "textarea", placeholder: post_placeholder_message(post), rows: "2" %>
+            <%= f.text_area :body, class: "textarea js-post-body", placeholder: post_placeholder_message(post), rows: "2" %>
           </div>
           <nav class="level">
             <div class="level-left">
               <div class="level-item">
                 <label class="checkbox">
-                  <input type="checkbox"> Press enter to submit
+                  <input type="checkbox" class="js-enter-submit"> Press Enter to submit
                 </label>
               </div>
             </div>
