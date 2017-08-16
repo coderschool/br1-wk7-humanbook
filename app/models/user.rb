@@ -37,7 +37,8 @@ class User < ApplicationRecord
     # Finally:
     # - if user doesn't save, return false
     # - if user did save, return user
-    user.save && user
+    user.save
+    user
   end
 
   def image_url_or_default
