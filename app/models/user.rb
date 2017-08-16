@@ -27,7 +27,9 @@ class User < ApplicationRecord
     # in that case you can use facebook-id@facebook.com as a workaround
     email = auth[:info][:email] || "#{auth[:uid]}@facebook.com"
     user = where(email: email).first_or_initialize
-    user.remote_avatar_url = auth[:info][:image]
+    if url = auth[:info][:image]
+      user.remote_avatar_url = url.sub("http:", "https:") + "?type=large"
+    end
     user.name = auth[:info][:name]
     user.password = SecureRandom.hex
     #
