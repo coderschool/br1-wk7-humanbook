@@ -5,7 +5,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
     @post.wall_user ||= current_user
 
-    unless @post.save
+    if @post.save
+      PostMailer.new_post(@post).deliver_now
+    else
       flash[:error] = @post.errors.full_messages.to_sentence
     end
 

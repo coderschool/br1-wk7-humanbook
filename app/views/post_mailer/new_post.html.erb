@@ -1,0 +1,10 @@
+<h1>Wow!</h1>
+
+<p>
+  <%= @user.name %> wrote on your wall. Click <%= link_to "here", root_url %> to view.
+</p>
+
+<hr>
+<div style="border: 1px solid red; padding: 20px">
+  <%= simple_format @post.body %>
+</div>
