@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
   validates :body, presence: true
 
+  mount_uploader :image, AvatarUploader
+
   def different_wall?
     wall_user != poster
   end

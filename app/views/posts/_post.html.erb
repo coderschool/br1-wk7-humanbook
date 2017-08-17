@@ -21,6 +21,13 @@
       <%= simple_format post.body %>
     </div>
   </div>
+  <% if post.image? %>
+    <div class="card-image">
+      <div class="image">
+        <%= image_tag post.image.url %>
+      </div>
+    </div>
+  <% end %>
   <div class="card-footer">
     <div class="level">
       <div class="level-left">

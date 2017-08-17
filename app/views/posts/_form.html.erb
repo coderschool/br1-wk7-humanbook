@@ -15,15 +15,26 @@
           <nav class="level">
             <div class="level-left">
               <div class="level-item">
-                <label class="checkbox">
-                  <input type="checkbox" class="js-enter-submit"> Press Enter to submit
-                </label>
+                <div class="file is-white">
+                  <label class="file-label">
+                    <%= f.file_field :image, class: "file-input" %>
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fa fa-camera-retro"></i>
+                      </span>
+                      <span class="file-label">Photo…</span>
+                    </span>
+                  </label>
+                </div>
               </div>
             </div>
             <div class="level-right">
               <div class="level-item">
-                <%= f.submit "Post", class: "button is-primary" %>
+                <label class="checkbox">
+                  <input type="checkbox" class="js-enter-submit"> Press Enter to submit
+                </label>
               </div>
+              <button class="level-item button is-primary"><%= icon("send", "Post") %></button>
             </div>
           </nav>
         </div>
