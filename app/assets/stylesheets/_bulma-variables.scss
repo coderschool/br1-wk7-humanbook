@@ -1,5 +1,19 @@
+$color1: rgba(30, 21, 42, 1);
+$color2: rgba(78, 103, 102, 1);
+$color3: rgba(90, 177, 187, 1);
+$color4: rgba(165, 200, 130, 1);
+$color5: rgba(247, 221, 114, 1);
+
+$background: #efefef;
+
+$primary: $color3;
+$success: $color4;
+$warning: $color5;
+// #9EC5AB
+// #01200F
+// #011502
 // $navbar-background-color: #3b5998;
-$primaryColor: #2196f3;
+$primaryColor: darken($primary, 10%);
 $linkColor: #efefef;
 
 $navbar-background-color: $primaryColor;

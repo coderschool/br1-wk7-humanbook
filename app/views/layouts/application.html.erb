@@ -12,13 +12,15 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <%= image_tag "human-hydrogen.png", alt: "Humanbook" %>
+            <div class="image is-32x32" style="margin: 10px">
+              <%= image_tag "human-1.png", alt: "Humanbook", style: "border-radius: 3px" %>
+            </div>
           </a>
           <div class="navbar-item">
             <%= form_tag users_path, method: 'get' do %>
               <div class="field">
                 <div class="control has-icons-right">
-                  <input class="input" type="text" placeholder="Search users">
+                  <input class="input search-bar" type="text" placeholder="Search users" style="height:2em;width:30rem">
                   <span class="icon is-right is-small">
                     <%= fa_icon("search") %>
                   </span>

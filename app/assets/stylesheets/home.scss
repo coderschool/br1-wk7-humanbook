@@ -1,3 +1,11 @@
+body, html {
+  background-color: #efefef;
+}
+
+.input.seach-bar {
+  border-radius: 3px;
+  width: 200px;
+}
 .navbar-burger {
   &:hover {
     background-color: darken($primaryColor, 10%);
@@ -30,4 +38,8 @@ a.wall-image-link {
   img {
     vertical-align: middle;
   }
+}
+
+.wall-tabs.tabs {
+  background-color: white;
 }
