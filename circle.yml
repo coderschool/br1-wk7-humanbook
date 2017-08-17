@@ -1,5 +1,5 @@
 deployment:
   staging:
-    branch: lec6.2-practice
+    branch: lec6.4-start
     heroku:
       appname: humanbuuk
