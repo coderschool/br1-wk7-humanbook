@@ -29,7 +29,7 @@
     </div>
   <% end %>
   <div class="card-footer">
-    <div class="level">
+    <div class="level is-mobile">
       <div class="level-left">
         <div class="level-item">
           <%= link_to icon("thumbs-up", "Like"), likes_path(post_id: post.id), class: "button is-white #{'is-liked' if current_user.likes?(post)}", method: "post" %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "wall/:id" => "wall#show", as: :wall
 
-  resources :posts, only: [:create]
+  resources :posts, only: [:create, :show]
   
   get 'friends/my'
   get 'friends/friended_by'

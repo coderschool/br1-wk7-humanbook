@@ -20,6 +20,10 @@ class User < ApplicationRecord
   validates :name, :email, presence: true
   has_secure_password
 
+  def name_or_email
+    name.presence || email
+  end
+
   def self.from_omniauth(auth)
     # Check out the Auth Hash function at https://github.com/mkdynamic/omniauth-facebook#auth-hash
     # and figure out how to get email for this user.

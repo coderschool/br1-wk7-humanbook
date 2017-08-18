@@ -7,11 +7,16 @@ class PostsController < ApplicationController
 
     if @post.save
       PostMailer.new_post(@post).deliver
+      NotifySlack.new.notify_new_post(@post, url_for(@post))
     else
       flash[:error] = @post.errors.full_messages.to_sentence
     end
 
     redirect_back fallback_location: root_path
+  end
+
+  def show
+    @post = Post.find params[:id]
   end
 
   private
