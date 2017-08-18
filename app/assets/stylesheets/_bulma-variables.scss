@@ -1,28 +1,37 @@
-$color1: rgba(30, 21, 42, 1);
-$color2: rgba(78, 103, 102, 1);
-$color3: rgba(90, 177, 187, 1);
-$color4: rgba(165, 200, 130, 1);
-$color5: rgba(247, 221, 114, 1);
+/* RGB */
+// my current favorite:
+// https://coolors.co/0b2027-70a9a1-cfd7c7-2ca6a4-f6f1d1
+$color1: rgba(11, 32, 39, 1);
+$color2: rgba(112, 169, 161, 1);
+$color3: rgba(207, 215, 199, 1);
+$color4: rgba(44, 166, 164, 1);
+$color5: rgba(246, 241, 209, 1);
 
 $background: #efefef;
 
-$primary: $color3;
-$success: $color4;
-$warning: $color5;
-// #9EC5AB
-// #01200F
-// #011502
+// $primary: $turquoise
+// $info: $blue
+// $success: $green
+// $warning: $yellow
+// $danger: $red
+// $dark: $grey-darker
+// $text: $grey-dark
+
+$primary: $color4;
+$success: $color2;
+$warning: $color3;
+
 // $navbar-background-color: #3b5998;
-$primaryColor: darken($primary, 10%);
+$primaryColor: $color1;
 $linkColor: #efefef;
 
-$navbar-background-color: $primaryColor;
+$navbar-background-color: lighten($primaryColor, 20%);
 
 $navbar-item-color: $linkColor;
 $navbar-item-hover-color: $linkColor;
-$navbar-item-hover-background-color: darken($primaryColor, 10%);
+$navbar-item-hover-background-color: lighten($primaryColor, 10%);
 
 $navbar-dropdown-background-color: $primaryColor;
 $navbar-dropdown-item-active-background-color: $primaryColor;
-$navbar-dropdown-item-hover-background-color: darken($primaryColor, 10%);
+$navbar-dropdown-item-hover-background-color: $navbar-item-hover-background-color;
 $navbar-dropdown-item-hover-color: $linkColor;

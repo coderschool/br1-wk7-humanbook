@@ -63,3 +63,4 @@ gem 'carrierwave-aws'
 gem "simple_form"
 gem 'trestle-search'
 gem 'trestle-auth'
+gem 'slack-notifier'
