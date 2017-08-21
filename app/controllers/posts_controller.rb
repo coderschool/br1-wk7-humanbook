@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login, only: [:create]
+  before_action :set_access_headers
 
   def index
     params[:per] ||= 10
@@ -42,5 +43,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:body, :wall_user_id, :image)
+  end
+
+  def set_access_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   end
 end
