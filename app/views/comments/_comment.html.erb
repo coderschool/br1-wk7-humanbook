@@ -1,4 +1,4 @@
-<div class="comment card-content">
+<div class="comment card-content" id="<%= dom_id comment %>">
   <div class="media">
     <div class="media-left">
       <p class="image is-32x32">
@@ -8,11 +8,8 @@
     <div class="media-content">
       <%= comment.body %>
       <div class="level">
-        <div class="level-left">
-          <%= link_to likes_path(comment_id: comment.id), class: "level-item", method: "post" do %>
-            <% current_user.likes?(comment) ? "Unlike" : "Like" %>
-          <% end %>
-          <span><%= comment.updated_at.to_s(:short) %></span>
+        <div class="level-left js-comment-like-status">
+          <%= render "comments/comment_like_status", comment: comment %>
         </div>
       </div>
     </div>
