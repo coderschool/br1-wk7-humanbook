@@ -1,5 +1,22 @@
 class PostsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:create]
+
+  def index
+    params[:per] ||= 10
+    @posts = Post.order("updated_at DESC").page(params[:page]).per(params[:per])
+    
+    respond_to do |format|
+      format.json 
+    end
+  end
+
+    def show
+    @post = Post.find params[:id]
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
   
   def create
     @post = current_user.posts.build post_params
@@ -13,10 +30,6 @@ class PostsController < ApplicationController
     end
 
     redirect_back fallback_location: root_path
-  end
-
-  def show
-    @post = Post.find params[:id]
   end
 
   def paging
