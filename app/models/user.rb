@@ -120,4 +120,8 @@ class User < ApplicationRecord
   def likes?(item)
     likes.where(item: item).exists?
   end
+
+  def self.random_user
+    User.offset(rand(User.count)).first
+  end
 end

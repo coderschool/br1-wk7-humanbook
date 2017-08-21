@@ -64,3 +64,4 @@ gem "simple_form"
 gem 'trestle-search'
 gem 'trestle-auth'
 gem 'slack-notifier'
+gem 'faker'
