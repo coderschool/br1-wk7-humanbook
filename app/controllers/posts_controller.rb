@@ -19,6 +19,12 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
   end
 
+  def paging
+    params[:per] ||= 10
+    @posts = Post.order("updated_at DESC").page(params[:page]).per(params[:per])
+    render @posts, layout: false
+  end
+
   private
 
   def post_params
