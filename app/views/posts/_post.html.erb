@@ -44,14 +44,7 @@
       </div>
     </div>
   </div>
-  <% if post.likes.present? %>
-    <div class="card-footer likes-sentence">
-      <p>
-        <%= fa_stacked_icon "thumbs-up inverse", base: "circle" %>
-        <%= post.likes.map(&:user_name).to_sentence %>
-      </p>
-    </div>
-  <% end %>
+  <%= render "posts/likes_sentence", post: post %>
   <%= render post.comments %>
   <%= render "comments/form", comment: post.comments.build %>
 </div>

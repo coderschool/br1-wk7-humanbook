@@ -1,1 +1,3 @@
-$("#<%= dom_id @item%>").find(".js-like-button").toggleClass("is-liked");
+$post = $("#<%= dom_id @item %>")
+$post.find(".js-like-button").toggleClass("is-liked");
+$post.find(".likes-sentence").replaceWith("<%= j render 'posts/likes_sentence', post: @item %>");

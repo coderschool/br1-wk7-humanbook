@@ -2,8 +2,9 @@
   color: $primary !important;
 }
 
-.likes-sentence {
+.likes-sentence > div {
   font-size: 0.8em;
   background-color: #efefef;
+  width: 100%;
   padding: 0.5rem;
 }
