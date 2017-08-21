@@ -118,6 +118,6 @@ class User < ApplicationRecord
   end
 
   def likes?(item)
-    likes.where(item: item).first
+    likes.where(item: item).exists?
   end
 end

@@ -4,13 +4,16 @@ class LikesController < ApplicationController
   # expect parmas[:post_id] or params[:comment_id]
   def toggle
     if params[:post_id]
-      post = Post.find params[:post_id]
-      current_user.toggle_like!(post)
+      @item = Post.find params[:post_id]
+      current_user.toggle_like!(@item)
     elsif params[:comment_id]
-      comment = Comment.find params[:comment_id]
-      current_user.toggle_like!(comment)
+      @item = Comment.find params[:comment_id]
+      current_user.toggle_like!(@item)
     end
 
-    redirect_back fallback_location: root_path
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.js
+    end
   end
 end
