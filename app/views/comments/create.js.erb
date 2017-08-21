@@ -1,0 +1,3 @@
+$post = $("#<%= dom_id @comment.post %>");
+$post.find(".comments").append("<%= j render @comment %>");
+$post.find("input.js-new-comment").val("");

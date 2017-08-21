@@ -2,8 +2,12 @@ class CommentsController < ApplicationController
   before_action :require_login
 
   def create
-    current_user.comments.create comment_params
-    redirect_back fallback_location: root_path
+    @comment = current_user.comments.create comment_params
+
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.js
+    end
   end
 
   private

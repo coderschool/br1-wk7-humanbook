@@ -45,6 +45,8 @@
     </div>
   </div>
   <%= render "posts/likes_sentence", post: post %>
-  <%= render post.comments %>
+  <div class="comments">
+    <%= render post.comments %>
+  </div>
   <%= render "comments/form", comment: post.comments.build %>
 </div>
