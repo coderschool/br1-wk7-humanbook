@@ -2,7 +2,7 @@
   <div class="media">
     <div class="media-left">
       <p class="image is-32x32">
-        <%= image_tag comment.user.image_url_or_default %>
+        <%= image_tag comment.user.image_url_or_default, alt: "Image #{comment.user_id}" %>
       </p>
     </div>
     <div class="media-content">
