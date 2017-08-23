@@ -13,6 +13,7 @@
             to 
             <strong><%= link_to post.wall_user.name, wall_path(post.wall_user) %></strong>
           <% end %>
+          <%= mentions_text(post) %>
         </p>
         <small><%= time_ago_in_words post.updated_at %> ago</small>
       </div>
