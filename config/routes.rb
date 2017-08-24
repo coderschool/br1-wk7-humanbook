@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   get 'friends/my'
   get 'friends/friended_by'
+  get 'friends/search'
 
   resources "messages" do
     collection do
@@ -30,7 +31,11 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
-  resources :users
+  resources :users do 
+    collection do
+      get :search
+    end
+  end
 
   root 'home#index'
 

@@ -60,6 +60,10 @@ class User < ApplicationRecord
     friends.include?(another_user)
   end
 
+  def self.autocomplete(name)
+    User.where("name ILIKE ? ", "%#{name}%")
+  end
+
   def self.generate_users(n = 5, gender = "female")
     url = "https://randomuser.me/api?results=#{n}&gender=#{gender}"
     body = HTTP.get(url).parse
@@ -71,6 +75,14 @@ class User < ApplicationRecord
       hash[:remote_avatar_url] = person["picture"]["large"]
       User.create! hash
     end
+  end
+
+  def self.generate_test_user_fast
+    User.create(
+      name: "Quy #{rand(100)}",
+      email: "phu#{rand(100)}@vo.com",
+      password: "monster"
+    )
   end
 
   # EXPLANATION[]

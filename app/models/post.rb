@@ -4,6 +4,7 @@ class Post < ApplicationRecord
 
   has_many :likes, as: :item, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :mentions, dependent: :destroy
 
   validates :body, presence: true
 
@@ -13,7 +14,7 @@ class Post < ApplicationRecord
     wall_user != poster
   end
 
-  def self.generate_posts(n = 5, user = nil)
+  def self.generate_posts(n = 5, user = nil, generate_mentions = true)
     user ||= User.last
     n.times do 
       post = Post.create(body: Faker::HowIMetYourMother.quote,
@@ -25,7 +26,15 @@ class Post < ApplicationRecord
           body: Faker::HowIMetYourMother.catch_phrase,
           user: User.random_user
         )
-      end      
+      end 
+      
+      if generate_mentions
+        rand(5).times do 
+          post.mentions.create(
+            user: User.random_user
+          )
+        end
+      end
     end
   end
 end
