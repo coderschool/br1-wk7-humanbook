@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   get 'friends/my'
   get 'friends/friended_by'
+  get 'friends/search'
 
   resources "messages" do
     collection do
