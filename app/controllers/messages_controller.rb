@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.sent_messages.build message_params
     if @message.save
+      WebNotificationsChannel.broadcast_to @message.recipient, html: helpers.badge_nav_link_content(@message.recipient.unseen_messages_count + 1)
       redirect_to sent_messages_path, flash: {success: "Sent."}
     else
       render 'new'

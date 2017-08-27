@@ -46,7 +46,7 @@ a.wall-image-link {
 }
 
 .navbar-item {
-  &.badge[data-badge]::after {
+  .badge[data-badge]::after {
     height: 1rem;
     min-width: 1rem;
     margin-top: 10px;
@@ -54,7 +54,7 @@ a.wall-image-link {
     font-weight: bold;
   }
 
-  &.badge[data-badge]::after,
+  .badge[data-badge]::after,
   .badge:not([data-badge])::after {
     box-shadow: none;
   }
