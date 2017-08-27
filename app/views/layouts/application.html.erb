@@ -55,7 +55,7 @@
                 </div>
               </div>
 
-              <%= link_to icon("comments-o"), messages_path, class: "navbar-item" %>
+              <%= badge_nav_link icon("comments-o"), messages_path, current_user.unseen_messages_count %>
               <%= link_to icon("sign-out"), logout_path, class: "navbar-item" %>
             <% else %>
               <%= link_to "Sign Up", new_user_path, class: "navbar-item" %>

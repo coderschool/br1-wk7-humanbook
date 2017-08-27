@@ -124,4 +124,16 @@ class User < ApplicationRecord
   def self.random_user
     User.offset(rand(User.count)).first
   end
+
+  def unseen_messages
+    received_messages.unseen
+  end
+
+  def unseen_messages_count
+    @unseen_messages_count ||= unseen_messages.count
+  end
+
+  def friends_by_count
+    @friends_by_count ||= Friendship.where(friend_id: id).count
+  end
 end

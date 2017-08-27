@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
 
   def inbox
     @messages = current_user.received_messages
+    @messages.each {|e| e.mark_as_seen!}
   end
 
   def index
