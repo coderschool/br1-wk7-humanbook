@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   get "wall/:id" => "wall#show", as: :wall
 
   resources :posts do
-    get :paging, on: :collection
+    collection do
+      get :paging
+      get :insert_new
+    end
   end
-  
+
   get 'friends/my'
   get 'friends/friended_by'
 

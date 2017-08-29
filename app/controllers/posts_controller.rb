@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     if @post.save
       # PostMailer.new_post(@post).deliver
       # NotifySlack.new.notify_new_post(@post, url_for(@post))
-      BroadcastPost
+      Broadcast.new_post(@post)
     else
       flash[:error] = @post.errors.full_messages.to_sentence
     end
@@ -38,6 +38,13 @@ class PostsController < ApplicationController
     params[:per] ||= 10
     @posts = Post.order("updated_at DESC").page(params[:page]).per(params[:per])
     render @posts, layout: false
+  end
+
+  def insert_new
+    @posts = Post.where("id >= ?", params[:post_id]).order("updated_at DESC")
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

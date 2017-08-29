@@ -1,4 +1,4 @@
-<div class="post card" id="<%= dom_id post %>">
+<div class="js-post post card" id="<%= dom_id post %>" data-post-id="<%= post.id %>">
   <div class="card-content">
     <div class="media">
       <div class="media-left">
@@ -10,7 +10,7 @@
         <p class="is-title">
           <strong><%= link_to post.poster.name, wall_path(post.poster) %></strong>
           <% if post.different_wall? %>
-            to 
+            to
             <strong><%= link_to post.wall_user.name, wall_path(post.wall_user) %></strong>
           <% end %>
         </p>
@@ -33,7 +33,7 @@
       <div class="level-left">
         <div class="level-item">
           <%= link_to(icon("thumbs-up", "Like"), likes_path(post_id: post.id),
-          class: "js-like-button button is-white #{'is-liked' if current_user.likes?(post)}",
+          class: "js-like-button button is-white #{'is-liked' if current_user && current_user.likes?(post)}",
           method: "post",
           remote: true
           ) %>
@@ -48,5 +48,7 @@
   <div class="comments">
     <%= render post.comments %>
   </div>
-  <%= render "comments/form", comment: post.comments.build %>
+  <% if current_user %>
+    <%= render "comments/form", comment: post.comments.build %>
+  <% end %>
 </div>
