@@ -2,7 +2,7 @@
   <%= link_to "Create An Account", new_user_path, class: "button is-primary" %>
   <%= link_to icon("facebook", "Log in with Facebook"), "/auth/facebook", class: "button is-info" %>
 <% else %>
-  <div class="columns">
+  <div class="columns is-mobile">
     <div class="column is-one-quarter">
       <aside class="menu">
         <ul class="menu-list">
@@ -13,7 +13,7 @@
             <% end %>
           </li>
         </ul>
-        <p class="menu-label">Apps</p>
+        <p class="menu-label" style="margin-left: 1em">Apps</p>
         <ul class="menu-list">
           <li><%= link_to icon("newspaper-o", "News Feed"), root_path, class: "is-active" %></li>
           <li><%= link_to icon("comments-o", "Messenger"), messages_path %></li>
